@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include intech_fire *.css
+recursive-include intech_fire *.csv
+recursive-include intech_fire *.html
+recursive-include intech_fire *.ico
+recursive-include intech_fire *.js
+recursive-include intech_fire *.json
+recursive-include intech_fire *.md
+recursive-include intech_fire *.png
+recursive-include intech_fire *.py
+recursive-include intech_fire *.svg
+recursive-include intech_fire *.txt
+recursive-exclude intech_fire *.pyc

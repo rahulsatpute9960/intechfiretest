@@ -1,0 +1,195 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
+  "document_type": "Timesheet",
+  "is_active": 0,
+  "modified": "2019-11-30 18:01:22.919696",
+  "name": "Timesheet Mumbai",
+  "override_status": 0,
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "send_email_alert": 1,
+  "states": [
+   {
+    "allow_edit": "Maintenance User",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Timesheet Mumbai",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Draft",
+    "update_field": null,
+    "update_value": null
+   },
+   {
+    "allow_edit": "Maintenance Manager",
+    "doc_status": "1",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Timesheet Mumbai",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Approve By Service Manager",
+    "update_field": null,
+    "update_value": null
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Approve",
+    "allow_self_approval": 0,
+    "allowed": "Maintenance User",
+    "condition": null,
+    "next_state": "Approve By Service Manager",
+    "parent": "Timesheet Mumbai",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Draft"
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 0,
+    "allowed": "Maintenance Manager",
+    "condition": null,
+    "next_state": "Draft",
+    "parent": "Timesheet Mumbai",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Draft"
+   }
+  ],
+  "workflow_name": "Timesheet Mumbai",
+  "workflow_state_field": "workflow_state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
+  "document_type": "Sales Order",
+  "is_active": 0,
+  "modified": "2020-03-24 17:07:28.181210",
+  "name": "Sales Order",
+  "override_status": 0,
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "send_email_alert": 1,
+  "states": [
+   {
+    "allow_edit": "Sales Roles",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Draft",
+    "update_field": null,
+    "update_value": null
+   },
+   {
+    "allow_edit": "Purchase Manager",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Sent For Purchase Mgr Approval",
+    "update_field": null,
+    "update_value": null
+   },
+   {
+    "allow_edit": "Accounts Manager",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Sent for Account Mgr Approval",
+    "update_field": null,
+    "update_value": null
+   },
+   {
+    "allow_edit": "Accounts Manager",
+    "doc_status": "1",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Approved",
+    "update_field": null,
+    "update_value": null
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Sent for Purchased Mgr Approval",
+    "allow_self_approval": 1,
+    "allowed": "Sales Roles",
+    "condition": null,
+    "next_state": "Sent For Purchase Mgr Approval",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Draft"
+   },
+   {
+    "action": "Approve",
+    "allow_self_approval": 1,
+    "allowed": "Purchase Manager",
+    "condition": null,
+    "next_state": "Sent for Account Mgr Approval",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Sent For Purchase Mgr Approval"
+   },
+   {
+    "action": "Approve",
+    "allow_self_approval": 1,
+    "allowed": "Accounts Manager",
+    "condition": null,
+    "next_state": "Approved",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Sent for Account Mgr Approval"
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 1,
+    "allowed": "Purchase Manager",
+    "condition": null,
+    "next_state": "Draft",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Sent For Purchase Mgr Approval"
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 1,
+    "allowed": "Accounts Manager",
+    "condition": null,
+    "next_state": "Draft",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Sent for Account Mgr Approval"
+   }
+  ],
+  "workflow_name": "Sales Order",
+  "workflow_state_field": "workflow_state"
+ }
+]
